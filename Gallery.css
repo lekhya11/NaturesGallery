@@ -1,0 +1,41 @@
+.gallery-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.gallery-image {
+  border-radius: 9px;
+  margin: 10px;
+}
+.thumbnail-container {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.gallery-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Roboto';
+  color: #1e293b;
+  padding-bottom: 10px;
+}
+.gallery-description {
+  font-size: 9px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  color: #64748b;
+  padding-bottom: 6px;
+}
+.gallery-list {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery-heading {
+    font-size: 30px;
+  }
+  .gallery-description {
+    font-size: 15px;
+  }
+}
