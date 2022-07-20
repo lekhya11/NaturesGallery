@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import ThumbnailItem from '../ThumbnailItem/index'
+import ThumbnailItem from '../ThumbnailItem'
 
 import './index.css'
 
@@ -79,34 +79,28 @@ class Gallery extends Component {
     activeImageId: imagesList[0].id,
   }
 
-  getImageUrl = () => {
-    const {activeImageId} = this.state
-    const filterImage = imagesList.filter(each => each.id === activeImageId)
-    console.log(filterImage)
-    return filterImage
+  updateImageId = id => {
+    this.setState({activeImageId: id})
   }
 
   render() {
-    const filterImage = this.getImageUrl()
+    const {activeImageId} = this.state
+    const {imageUrl, imageAltText} = imagesList[activeImageId]
 
     return (
-      <div className="gallery-container">
-        <div>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/nature-tree-img.png"
-            className="gallery-image"
-            alt={filterImage.imageAltText}
-          />
-        </div>
-        <div className="thumbnail-container">
+      <div className="app-container">
+        <div className="gallery-container">
+          <img src={imageUrl} className="gallery-image" alt={imageAltText} />
+
           <h1 className="gallery-heading"> Nature Photography</h1>
           <p className="gallery-description">Nature Photography by Lekhya</p>
           <ul className="gallery-list">
-            {imagesList.map(eachUrl => (
+            {imagesList.map(eachImage => (
               <ThumbnailItem
-                key={eachUrl.id}
-                thumbnailUrl={eachUrl.thumbnailUrl}
-                thumbnailAltText={eachUrl.thumbnailAltText}
+                key={eachImage.id}
+                imageDetails={eachImage}
+                updateImageId={this.updateImageId}
+                isActive={activeImageId === eachImage.id}
               />
             ))}
           </ul>
