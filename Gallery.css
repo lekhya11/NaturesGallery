@@ -1,48 +1,35 @@
-.app-container {
+/* Write your code here. */
+
+.main-container {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 100vw;
+}
+.image-list {
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style-type: none;
 }
 
-.gallery-container {
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  margin-top: 34px;
-  margin-bottom: 34px;
-  max-width: 1140px;
+.main-heading {
+  color: rgb(137, 45, 223);
+  font-family: monospace;
+  font-weight: bold;
+  text-shadow: 1px 3px plum;
 }
-.gallery-image {
-  border-radius: 18px;
+.main-image {
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  margin: 10px;
 }
-.thumbnail-container {
-  padding-top: 9px;
-  padding-bottom: 9px;
-}
-.gallery-heading {
-  font-size: 20px;
-  font-weight: 700;
-  font-family: 'Roboto';
-  color: #1e293b;
-  padding-bottom: 10px;
-}
-.gallery-description {
-  font-size: 9px;
-  font-weight: 500;
-  font-family: 'Roboto';
-  color: #64748b;
-  padding-bottom: 6px;
-}
-.gallery-list {
-  display: flex;
-  flex-direction: row;
-}
-
-@media screen and (min-width: 768px) {
-  .gallery-heading {
-    font-size: 30px;
-  }
-  .gallery-description {
-    font-size: 15px;
-  }
+.main-para {
+  color: black;
+  font-family: sans-serif;
 }
