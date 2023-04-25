@@ -1,28 +1,21 @@
-// component with props (thumbnailItem)
-
 import './index.css'
 
 const ThumbnailItem = props => {
-  const {imageDetails, updateImageId, isActive} = props
-  const {id, thumbnailUrl, thumbnailAltText} = imageDetails
-  const imageClassName = isActive ? `thumbnail active` : `thumbnail`
+  const {thumbnailDetails, onImageClicked, isActive} = props
+  const {id, thumbnailUrl, thumbnailAltText} = thumbnailDetails
 
-  const onClickImage = () => {
-    updateImageId(id)
+  const onClickedImage = () => {
+    onImageClicked(id)
   }
 
+  const active = isActive ? 'image image-selected' : 'image'
+
   return (
-    <>
-      <li className="thumbnail-image">
-        <button className="image-button" type="button" onClick={onClickImage}>
-          <img
-            src={thumbnailUrl}
-            alt={thumbnailAltText}
-            className={imageClassName}
-          />
-        </button>
-      </li>
-    </>
+    <li>
+      <button type="button" onClick={onClickedImage} className="button">
+        <img src={thumbnailUrl} alt={thumbnailAltText} className={active} />
+      </button>
+    </li>
   )
 }
 
