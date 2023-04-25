@@ -1,4 +1,5 @@
 import {Component} from 'react'
+
 import ThumbnailItem from '../ThumbnailItem'
 
 import './index.css'
@@ -76,35 +77,33 @@ const imagesList = [
 
 class Gallery extends Component {
   state = {
-    activeImageId: imagesList[0].id,
+    activeImg: imagesList[0].id,
   }
 
-  updateImageId = id => {
-    this.setState({activeImageId: id})
+  onImageClicked = id => {
+    console.log(id)
+    this.setState({activeImg: id})
   }
 
   render() {
-    const {activeImageId} = this.state
-    const {imageUrl, imageAltText} = imagesList[activeImageId]
+    const {activeImg} = this.state
+    const {imageUrl, imageAltText} = imagesList[activeImg]
 
     return (
-      <div className="app-container">
-        <div className="gallery-container">
-          <img src={imageUrl} className="gallery-image" alt={imageAltText} />
-
-          <h1 className="gallery-heading"> Nature Photography</h1>
-          <p className="gallery-description">Nature Photography by Lekhya</p>
-          <ul className="gallery-list">
-            {imagesList.map(eachImage => (
-              <ThumbnailItem
-                key={eachImage.id}
-                imageDetails={eachImage}
-                updateImageId={this.updateImageId}
-                isActive={activeImageId === eachImage.id}
-              />
-            ))}
-          </ul>
-        </div>
+      <div className="main-container">
+        <img src={imageUrl} alt={imageAltText} className="main-image" />
+        <h1 className="main-heading">Nature Photography</h1>
+        <p className="main-para">Nature Photography by Rahul</p>
+        <ul className="image-list">
+          {imagesList.map(eachDet => (
+            <ThumbnailItem
+              key={eachDet.id}
+              thumbnailDetails={eachDet}
+              onImageClicked={this.onImageClicked}
+              isActive={activeImg === eachDet.id}
+            />
+          ))}
+        </ul>
       </div>
     )
   }
